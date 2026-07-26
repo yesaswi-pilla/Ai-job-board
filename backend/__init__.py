@@ -17,7 +17,16 @@ app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads')
 # Allow API endpoints to work with and without trailing slashes.
 app.url_map.strict_slashes = False
 
-frontend_origin = os.getenv('FRONTEND_ORIGIN', 'http://127.0.0.1:4173')
+frontend_origin = os.getenv("FRONTEND_ORIGIN", "*")
+CORS(
+    app,
+    supports_credentials=True,
+    resources={
+        r"/api/*": {"origins": frontend_origin},
+        r"/uploads/*": {"origins": frontend_origin},
+    },
+)
+
 CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": frontend_origin}, r"/uploads/*": {"origins": frontend_origin}})
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
