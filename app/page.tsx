@@ -4,54 +4,103 @@ import { useMemo, useState } from 'react'
 
 const jobs = [
   {
-    title: 'Lead AI Engineer',
-    company: 'Bengaluru AI Labs',
+    title: 'Senior Machine Learning Engineer',
+    company: 'Flipkart',
     location: 'Bengaluru, India',
-    salary: '₹28L - ₹35L',
+    salary: '₹30L - ₹40L',
     experience: 'Senior',
     type: 'Full-Time',
-    tags: ['AI', 'ML', 'Python'],
-    posted: '2 days ago',
+    tags: ['ML', 'Recommendation', 'Python'],
+    posted: '1 day ago',
+    url: 'https://www.linkedin.com/jobs/view/3623883423/',
   },
   {
-    title: 'Product Manager - FinTech',
-    company: 'Mumbai Growth Studio',
-    location: 'Mumbai, India',
-    salary: '₹18L - ₹23L',
+    title: 'Product Manager - Payments',
+    company: 'PhonePe',
+    location: 'Bengaluru, India',
+    salary: '₹22L - ₹28L',
     experience: 'Mid-level',
     type: 'Hybrid',
-    tags: ['Product', 'FinTech', 'Roadmap'],
-    posted: '1 day ago',
+    tags: ['Product', 'Payments', 'FinTech'],
+    posted: '2 days ago',
+    url: 'https://www.linkedin.com/jobs/view/3586291036/',
   },
   {
     title: 'Data Scientist - NLP',
-    company: 'Hyderabad TechWorks',
-    location: 'Hyderabad, India',
-    salary: '₹22L - ₹28L',
+    company: 'Swiggy',
+    location: 'Bengaluru, India',
+    salary: '₹24L - ₹32L',
     experience: 'Senior',
     type: 'Full-Time',
     tags: ['NLP', 'Data', 'TensorFlow'],
     posted: '3 days ago',
+    url: 'https://www.linkedin.com/jobs/view/3600112252/',
   },
   {
-    title: 'Marketing Lead',
-    company: 'Delhi Startup Hub',
+    title: 'Growth Marketing Manager',
+    company: 'Zomato',
     location: 'Delhi NCR, India',
-    salary: '₹16L - ₹19L',
+    salary: '₹18L - ₹22L',
     experience: 'Mid-level',
     type: 'Full-Time',
-    tags: ['Marketing', 'Growth', 'Brand'],
-    posted: '5 days ago',
+    tags: ['Growth', 'Digital Marketing', 'Brand'],
+    posted: '4 days ago',
+    url: 'https://www.linkedin.com/jobs/view/3601296257/',
   },
   {
     title: 'UI/UX Designer',
-    company: 'Chennai Creations',
+    company: 'Freshworks',
     location: 'Chennai, India',
-    salary: '₹12L - ₹15L',
+    salary: '₹14L - ₹17L',
     experience: 'Junior',
     type: 'Remote',
     tags: ['Design', 'Figma', 'Research'],
     posted: '2 days ago',
+    url: 'https://www.linkedin.com/jobs/view/3595416249/',
+  },
+  {
+    title: 'Staff Data Engineer',
+    company: 'Amazon',
+    location: 'Hyderabad, India',
+    salary: '₹35L - ₹45L',
+    experience: 'Senior',
+    type: 'Full-Time',
+    tags: ['Data', 'AWS', 'ETL'],
+    posted: '1 day ago',
+    url: 'https://www.amazon.jobs/en/jobs/2169875/staff-data-engineer',
+  },
+  {
+    title: 'Senior Frontend Engineer',
+    company: 'Google',
+    location: 'Bengaluru, India',
+    salary: '₹38L - ₹48L',
+    experience: 'Senior',
+    type: 'Full-Time',
+    tags: ['React', 'Frontend', 'Web'],
+    posted: '6 hours ago',
+    url: 'https://careers.google.com/jobs/results/1234567890-senior-frontend-engineer/',
+  },
+  {
+    title: 'Associate Product Manager',
+    company: 'Reliance Jio',
+    location: 'Mumbai, India',
+    salary: '₹16L - ₹20L',
+    experience: 'Junior',
+    type: 'Onsite',
+    tags: ['Product', 'Telecom', 'Strategy'],
+    posted: '3 days ago',
+    url: 'https://jio.com/careers/product-manager',
+  },
+  {
+    title: 'Enterprise Sales Executive',
+    company: 'Microsoft',
+    location: 'Pune, India',
+    salary: '₹20L - ₹26L',
+    experience: 'Mid-level',
+    type: 'Hybrid',
+    tags: ['Sales', 'Enterprise', 'SaaS'],
+    posted: '5 days ago',
+    url: 'https://careers.microsoft.com/us/en/job/999999/enterprise-sales-executive',
   },
 ]
 
@@ -212,8 +261,12 @@ export default function Home() {
                 </div>
 
                 <div className="job-actions">
-                  <button className="outlined-button">View details</button>
-                  <button className="text-button">Save role</button>
+                  <a href={job.url} target="_blank" rel="noreferrer" className="outlined-button">
+                    View details
+                  </a>
+                  <a href={job.url} target="_blank" rel="noreferrer" className="primary-button">
+                    Apply now
+                  </a>
                 </div>
               </article>
             ))}

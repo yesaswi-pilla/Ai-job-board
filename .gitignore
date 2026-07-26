@@ -13,5 +13,5 @@ yarn-error.log*
 coverage
 frontend/dist
 backend/dev.db
-backend/__pycache__
+**/__pycache__/
 backend/ai job board.ZIP.zip

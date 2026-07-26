@@ -1,46 +1,74 @@
 # AI Job Board
 
-A simple AI-powered business app combining a jobs board and social feed. Built with Next.js for fast Vercel deployment and GitHub Actions-based CI/CD.
+This repository contains a monorepo implementation of an AI Job Portal with a React + TypeScript frontend and a Flask backend.
 
 ## Contents
 
-- `app/` — Next.js app router pages and styles
-- `.github/workflows/deploy.yml` — GitHub Actions workflow for build and Vercel deployment
-- `README.md` — project overview and deployment instructions
+- `frontend/` — React + TypeScript + Vite frontend application
+- `backend/` — Flask REST API backend with SQLite and JWT authentication
+- `.github/workflows/deploy.yml` — GitHub Actions workflow for frontend CI/CD and Vercel deployment
+- `AI_DOCUMENTATION.md` — project documentation generated for this AI task
 
-## Run Locally
+## Local development
 
+### Frontend
 1. Install dependencies:
    ```bash
+   cd frontend
    npm install
    ```
-2. Start development server:
+2. Start frontend:
    ```bash
    npm run dev
    ```
-3. Open http://localhost:3000
+3. Open:
+   - http://127.0.0.1:4173
+
+### Backend
+1. Install Python dependencies:
+   ```bash
+   cd backend
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+2. Copy `.env.example` to `.env` and set your secret values.
+3. Start backend:
+   ```bash
+   python -m backend.app
+   ```
+4. API base URL:
+   - http://127.0.0.1:5000
+
+## Local hosts
+
+- Frontend: `http://127.0.0.1:4173`
+- Backend API: `http://127.0.0.1:5000`
 
 ## GitHub CI/CD
 
-The workflow in `.github/workflows/deploy.yml` runs on every push to `main` and does the following:
+The workflow in `.github/workflows/deploy.yml` runs on pushes and pull requests to `main` and `master`. It:
 
-1. Installs dependencies
-2. Builds the app
-3. Deploys to Vercel using the official Vercel Action
+1. Installs frontend dependencies
+2. Lints and builds the frontend
+3. Installs backend dependencies
+4. Validates backend Python files
+5. Deploys the frontend to Vercel using `amondnet/vercel-action`
 
-## Vercel Deployment Setup
+## Vercel Deployment
 
-Create GitHub repository and add the following secrets:
+The frontend deploys from the `frontend/` directory. Configure Vercel with:
+
+- Root directory: `frontend`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+## Required GitHub secrets
 
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
-- `VERCEL_PROJECT_NAME`
 
-Then push the code to GitHub.
+## Notes
 
-## Improvements
-
-- Add a real backend or database
-- Expand AI resume matching, candidate profiles, and chat features
-- Share posts with comments and likes
+- The frontend proxies `/api` requests to `http://127.0.0.1:5000` in development.
+- The backend runs on Flask and uses SQLite for the local database.
