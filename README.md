@@ -6,23 +6,11 @@ A full-stack AI Job Portal that enables employers to post jobs and candidates to
 
 ## Live Demo
 
-**Frontend (Vercel)**
+- **Frontend (Vercel):** [AI Job Portal](https://ai-job-board-73lre1b4z-yesaswi1.vercel.app/)
 
-```
-(https://ai-job-board-73lre1b4z-yesaswi1.vercel.app/)
-```
+- **Backend API (Render):** [Render Backend](https://ai-job-board-kmw0.onrender.com)
 
-**Backend API (Render)**
-
-```
-(https://ai-job-board-kmw0.onrender.com)
-```
-
-**GIT URL**
-
-```
-(https://github.com/yesaswi-pilla/Ai-job-board.git)
-```
+- **GitHub Repository:** [Ai-job-board](https://github.com/yesaswi-pilla/Ai-job-board)
 ---
 
 # Project Overview
@@ -163,9 +151,9 @@ PostgreSQL Database
 ## Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/yesaswi-pilla/Ai-job-board.git
 
-cd ai-job-board
+cd Ai-job-board
 ```
 
 ---
