@@ -1,92 +1,172 @@
-# AI Job Portal Documentation
+# AI_DOCUMENTATION.md
+
+# AI Job Portal – AI Development Documentation
 
 ## Project Overview
 
-This repository contains an AI Job Portal application implemented as a monorepo with:
+The AI Job Portal is a full-stack web application that enables employers to post job opportunities and candidates to browse and apply for jobs through a modern web interface.
 
-- `frontend/` — React + TypeScript + Vite SPA
-- `backend/` — Flask + SQLite REST API
-- `.github/workflows/deploy.yml` — GitHub Actions workflow for frontend CI/CD and Vercel deployment
+The application was developed using a React + TypeScript frontend and a Flask REST API backend with a PostgreSQL database. The project was deployed using Vercel for the frontend and Render for the backend.
 
-The app supports:
+---
 
-- Candidate job browsing and saved jobs
-- Employer job posting and company management
-- User authentication via JWT
-- Resume upload and application submission
+# Objective
 
-## Local Hosts
+The objective of this project was to build a production-style recruitment platform demonstrating full-stack software development practices including:
 
-- Frontend local URL: `http://127.0.0.1:4173`
-- Backend API local URL: `http://127.0.0.1:5000`
+* User authentication
+* REST API development
+* Database integration
+* Responsive frontend design
+* Cloud deployment
+* Version control using Git and GitHub
 
-## Frontend Setup
+---
 
-1. Navigate to `frontend`
-2. Install packages:
-   ```bash
-   cd frontend
-   npm install
-   ```
-3. Start frontend dev server:
-   ```bash
-   npm run dev
-   ```
-4. Run lint:
-   ```bash
-   npm run lint
-   ```
-5. Build for production:
-   ```bash
-   npm run build
-   ```
+# Technology Stack
 
-## Backend Setup
+## Frontend
 
-1. Navigate to `backend`
-2. Install Python dependencies:
-   ```bash
-   cd backend
-   python -m pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
-3. Copy `.env.example` to `.env` and customize secrets.
-4. Start backend:
-   ```bash
-   python -m backend.app
-   ```
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* React Router
+* Axios
 
-## GitHub CI/CD Pipeline
+## Backend
 
-The GitHub Actions workflow defined in `.github/workflows/deploy.yml` does the following on push to `main` or `master`:
+* Python
+* Flask
+* Flask-JWT-Extended
+* SQLAlchemy
 
-- Checks out the repository
-- Sets up Node.js and installs frontend dependencies
-- Runs ESLint on `frontend/`
-- Builds the frontend bundle
-- Sets up Python and installs backend dependencies
-- Validates backend Python files with `py_compile`
-- Deploys the frontend to Vercel with the Vercel Action
+## Database
 
-### Required GitHub Secrets
+* PostgreSQL
 
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
+## Deployment
 
-## Vercel Deployment
+* Vercel
+* Render
 
-This project deploys the frontend from the `frontend/` directory. The Vercel project should be configured with:
+---
 
-- Root directory: `frontend`
-- Build command: `npm run build`
-- Output directory: `dist`
+# Use of AI During Development
 
-If you want the backend to be available as a deployed API, you should migrate it to a hosted backend environment or connect it to a dedicated cloud service. Currently, this repository deploys the frontend only.
+Artificial intelligence was used as a development assistant throughout the project.
 
-## Notes on Current Code
+AI assistance included:
 
-- The frontend proxy routes `/api` to `http://127.0.0.1:5000` for local development.
-- The backend uses SQLite for development and seeds sample categories, users, companies, and jobs.
-- `frontend/.eslintrc.cjs` provides lint configuration for React + TypeScript.
-- `frontend/vercel.json` defines static build settings for Vercel.
+* Explaining implementation approaches
+* Reviewing frontend and backend code
+* Identifying integration issues
+* Assisting with debugging API communication
+* Helping configure deployment on Vercel and Render
+* Suggesting improvements for project structure
+* Assisting in preparing project documentation
+* Reviewing README content and deployment instructions
+
+All implementation decisions, testing, deployment, and final verification were completed by the developer.
+
+---
+
+# Development Workflow
+
+The project followed a structured development workflow:
+
+1. Designed the frontend application.
+2. Developed REST API endpoints using Flask.
+3. Connected the frontend and backend through Axios.
+4. Configured PostgreSQL for persistent data storage.
+5. Implemented authentication and protected routes.
+6. Deployed the backend to Render.
+7. Deployed the frontend to Vercel.
+8. Connected both deployments using environment variables.
+9. Performed testing and debugging.
+10. Prepared project documentation.
+
+---
+
+# Challenges Encountered
+
+During development several challenges were encountered, including:
+
+* Frontend and backend deployment integration.
+* API communication between Vercel and Render.
+* Environment variable configuration.
+* Deployment troubleshooting.
+* Route configuration.
+* Database connectivity.
+* Cross-origin request handling.
+* General debugging during application integration.
+
+Each issue was investigated, tested, and resolved to achieve a working deployed application.
+
+---
+
+# Application Features
+
+## Authentication
+
+* User registration
+* User login
+* JWT authentication
+* Protected routes
+* Role-based access
+
+## Candidate
+
+* Browse jobs
+* View job details
+* Upload resume
+* Apply for jobs
+* Candidate dashboard
+
+## Employer
+
+* Employer dashboard
+* Create company
+* Post jobs
+* Manage listings
+
+## Public
+
+* Featured jobs
+* Company profiles
+* Job categories
+
+---
+
+# Testing
+
+The application was tested by:
+
+* Verifying REST API endpoints.
+* Testing frontend navigation.
+* Validating authentication.
+* Confirming deployment functionality.
+* Checking frontend-backend communication.
+* Testing major application workflows.
+
+---
+
+# Deployment
+
+Frontend:
+
+https://ai-job-board-73lre1b4z-yesaswi1.vercel.app/
+
+Backend API:
+
+https://ai-job-board-kmw0.onrender.com/api/jobs
+
+GitHub Repository:
+
+https://github.com/yesaswi-pilla/Ai-job-board
+
+---
+
+# Conclusion
+
+This project demonstrates the development of a full-stack web application using modern web technologies and cloud deployment platforms. AI was used as a development assistant to support planning, debugging, code review, deployment guidance, and documentation while the implementation, testing, integration, and final project submission remained under the developer's responsibility.
