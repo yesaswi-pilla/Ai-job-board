@@ -1,74 +1,302 @@
-# AI Job Board
+# AI Job Portal
 
-This repository contains a monorepo implementation of an AI Job Portal with a React + TypeScript frontend and a Flask backend.
+A full-stack AI Job Portal that enables employers to post jobs and candidates to discover and apply for opportunities through a modern web interface. The application is designed with a production-style architecture using a React frontend, Flask REST API backend, PostgreSQL database, and cloud deployment.
 
-## Contents
+---
 
-- `frontend/` — React + TypeScript + Vite frontend application
-- `backend/` — Flask REST API backend with SQLite and JWT authentication
-- `.github/workflows/deploy.yml` — GitHub Actions workflow for frontend CI/CD and Vercel deployment
-- `AI_DOCUMENTATION.md` — project documentation generated for this AI task
+## Live Demo
 
-## Local development
+**Frontend (Vercel)**
 
-### Frontend
-1. Install dependencies:
-   ```bash
-   cd frontend
-   npm install
-   ```
-2. Start frontend:
-   ```bash
-   npm run dev
-   ```
-3. Open:
-   - http://127.0.0.1:4173
+```
+(https://ai-job-board-73lre1b4z-yesaswi1.vercel.app/)
+```
 
-### Backend
-1. Install Python dependencies:
-   ```bash
-   cd backend
-   python -m pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
-2. Copy `.env.example` to `.env` and set your secret values.
-3. Start backend:
-   ```bash
-   python -m backend.app
-   ```
-4. API base URL:
-   - http://127.0.0.1:5000
+**Backend API (Render)**
 
-## Local hosts
+```
+https://ai-job-board-kmw0.onrender.com
+```
 
-- Frontend: `http://127.0.0.1:4173`
-- Backend API: `http://127.0.0.1:5000`
+**GIT URL**
 
-## GitHub CI/CD
+```
+https://github.com/yesaswi-pilla/Ai-job-board.git
+```
+---
 
-The workflow in `.github/workflows/deploy.yml` runs on pushes and pull requests to `main` and `master`. It:
+# Project Overview
 
-1. Installs frontend dependencies
-2. Lints and builds the frontend
-3. Installs backend dependencies
-4. Validates backend Python files
-5. Deploys the frontend to Vercel using `amondnet/vercel-action`
+The AI Job Portal simulates a real-world recruitment platform where:
 
-## Vercel Deployment
+* Employers can register and manage job listings.
+* Candidates can browse available positions.
+* Users can authenticate securely.
+* Candidates can apply for jobs using uploaded resumes.
+* Companies and job categories are managed through REST APIs.
+* Data is stored in PostgreSQL.
 
-The frontend deploys from the `frontend/` directory. Configure Vercel with:
+The project demonstrates modern full-stack development practices including authentication, REST API design, database integration, deployment, and responsive UI development.
 
-- Root directory: `frontend`
-- Build command: `npm run build`
-- Output directory: `dist`
+---
 
-## Required GitHub secrets
+# Features
 
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
+### Authentication
 
-## Notes
+* User Registration
+* User Login
+* JWT Authentication
+* Protected Routes
+* Role-based Access
 
-- The frontend proxies `/api` requests to `http://127.0.0.1:5000` in development.
-- The backend runs on Flask and uses SQLite for the local database.
+### Candidate Features
+
+* Browse Jobs
+* Search Opportunities
+* View Job Details
+* Upload Resume
+* Apply for Jobs
+* Candidate Dashboard
+
+### Employer Features
+
+* Employer Dashboard
+* Create Company
+* Post Jobs
+* Manage Job Listings
+
+### Public Features
+
+* Home Page
+* Featured Jobs
+* Company Profiles
+* Job Categories
+
+---
+
+# Tech Stack
+
+## Frontend
+
+* React
+* TypeScript
+* Vite
+* React Router
+* Axios
+* Tailwind CSS
+* vercel
+
+## Backend
+
+* Python
+* Flask
+* Flask-JWT-Extended
+* SQLAlchemy
+* Render
+
+## Database
+
+* PostgreSQL
+
+## Deployment
+
+Frontend:
+
+* Vercel
+
+Backend:
+
+* Render
+
+---
+
+# Project Structure
+
+```
+ai-job-board/
+
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── contexts/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── App.tsx
+│
+├── backend/
+│   ├── app/
+│   ├── routes/
+│   ├── models/
+│   ├── migrations/
+│   ├── config.py
+│   └── app.py
+│
+├── README.md
+└── requirements.txt
+```
+
+---
+
+# System Architecture
+
+```
+React (Vercel)
+
+        │
+
+        ▼
+
+Flask REST API (Render)
+
+        │
+
+        ▼
+
+PostgreSQL Database
+```
+
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone <repository-url>
+
+cd ai-job-board
+```
+
+---
+
+## Backend
+
+```bash
+cd backend
+
+python -m venv venv
+
+source venv/bin/activate
+```
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Install packages
+
+```bash
+pip install -r requirements.txt
+```
+
+Run
+
+```bash
+python app.py
+```
+
+---
+
+## Frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+---
+
+# Environment Variables
+
+## Backend (.env)
+
+```env
+DATABASE_URL=your_database_url
+
+JWT_SECRET_KEY=your_secret_key
+
+FLASK_ENV=production
+```
+
+## Frontend (.env)
+
+```env
+VITE_API_URL=https://ai-job-board-kmw0.onrender.com
+```
+
+---
+
+# REST API
+
+## Authentication
+
+```
+POST /api/auth/register
+
+POST /api/auth/login
+```
+
+## Jobs
+
+```
+GET /api/jobs
+
+GET /api/jobs/:id
+
+POST /api/jobs
+```
+
+## Companies
+
+```
+GET /api/companies
+
+POST /api/companies
+```
+
+## Categories
+
+```
+GET /api/categories
+```
+
+---
+
+# Deployment
+
+## Frontend
+
+Hosted on **Vercel**.
+
+The frontend communicates with the deployed Flask backend through environment variables.
+
+---
+
+## Backend
+
+Hosted on **Render**.
+
+The backend exposes REST APIs consumed by the React frontend.
+
+
+# Future Improvements
+
+* Email Notifications
+* Advanced Job Search
+* Resume Parsing
+* AI Job Recommendations
+* Interview Scheduling
+* Company Verification
+* Saved Searches
+* Admin Dashboard
+
+
+# License
+
+This project was developed as part of a technical assessment and is intended for educational and evaluation purposes.
