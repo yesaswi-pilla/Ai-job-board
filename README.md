@@ -9,19 +9,19 @@ A full-stack AI Job Portal that enables employers to post jobs and candidates to
 **Frontend (Vercel)**
 
 ```
-[text](https://ai-job-board-73lre1b4z-yesaswi1.vercel.app/)
+(https://ai-job-board-73lre1b4z-yesaswi1.vercel.app/)
 ```
 
 **Backend API (Render)**
 
 ```
-[text](https://ai-job-board-kmw0.onrender.com)
+(https://ai-job-board-kmw0.onrender.com)
 ```
 
 **GIT URL**
 
 ```
-[text](https://github.com/yesaswi-pilla/Ai-job-board.git)
+(https://github.com/yesaswi-pilla/Ai-job-board.git)
 ```
 ---
 
