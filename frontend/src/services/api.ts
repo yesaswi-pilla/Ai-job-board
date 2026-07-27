@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/',
+  baseURL: 'https://ai-job-board-kmw0.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
